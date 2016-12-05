@@ -11,6 +11,7 @@
   width: 28rem;
   z-index: 100;
   filter: drop-shadow(16px 16px 10px rgba(0,0,0,0.9));
+  display: none;
 }
 
 :global(.Open) {

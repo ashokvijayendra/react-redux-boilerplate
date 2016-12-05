@@ -2,7 +2,7 @@ body{
 	overflow-x: initial !important;
 }
 
-.root {
+#root {
   width: 97%;
   margin: 0 auto;
 }
@@ -647,6 +647,7 @@ span.cp-error-msg{
 	margin: 20px 0;
 	padding-bottom: 20px;
 	border-bottom: 1px solid #cccccc;
+  background-color: wheat;
 }
 .pd-produc-desc{
 	float: left;

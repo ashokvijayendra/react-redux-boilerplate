@@ -53,6 +53,8 @@ const HTML = ({ content, store }) => (
   <html>
     <head>
       <link rel='stylesheet' type='text/css' href='/public/style.css' />
+      <link href="/public/globe1.css" rel="stylesheet" />
+      <link href="/public/globe.css" rel="stylesheet" />
     </head>
     <body>
       <div id='root' dangerouslySetInnerHTML={{ __html: content }}/>
@@ -96,7 +98,7 @@ app.use(function (req, res) {
         return new Promise(function(resolve, reject) {
           let comp = renderProps.components[renderProps.components.length - 1].WrappedComponent;
           let url = getSiteUrl()
-          resolve(comp.fetchData({ params, store, url }));
+          resolve({});
         });
       }
     }
