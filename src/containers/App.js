@@ -37,7 +37,9 @@ export default class App extends Component {
     return (
       <div styleName='AppContainer'>
         <SiteSidebar />
-        <div styleName='Main'>{this.props.children}</div>
+        <div styleName='Main'>
+         {this.props.children}
+        </div>
       </div>
     )
   }
