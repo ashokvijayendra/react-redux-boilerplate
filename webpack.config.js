@@ -35,7 +35,32 @@ function loaders() {
       test: /\.css$/i,
       loader: ExtractTextPlugin.extract('style',
         `css?modules&localIdentName=[name]_[local]__[hash:base64:5]!postcss`),
-    }
+    },
+         {
+          test: /\.jpe?g$/,
+            loader: 'file?name=assets/images/[name].[ext]'
+          }, {
+            test: /\.gif$/,
+            loader: 'file?name=assets/images/[name].[ext]'
+          }, {
+            test: /\.png$/,
+            loader: 'file?name=assets/images/[name].[ext]'
+          }, {
+            test: /\.svg$/,
+            loader: 'file?name=assets/images/[name].[ext]'
+          }, {
+            test: /\.woff$/,
+            loader: 'file?name=assets/fonts/[name].[ext]'
+          }, {
+            test: /\.ttf$/,
+            loader: 'file?name=assets/fonts/[name].[ext]'
+          }, {
+            test: /\.woff2$/,
+            loader: 'file?name=assets/fonts/[name].[ext]'
+          }, {
+            test: /\.eot$/,
+            loader: 'file?name=assets/fonts/[name].[ext]'
+          }
   ]
 }
 
