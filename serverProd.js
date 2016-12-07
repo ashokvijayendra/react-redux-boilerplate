@@ -87,7 +87,9 @@ app.use(function (req, res) {
             <RouterContext {...renderProps}/>
           </Provider>
         )
+        console.log('RESPONSE SENDING')
         res.send('<!doctype html>\n' + renderToString(<HTML content={content} store={store}/>))
+        console.log('RESPONSE SENT')
       }).catch(function (error) {
         console.log(error.stack);
       });
@@ -98,7 +100,7 @@ app.use(function (req, res) {
         return new Promise(function(resolve, reject) {
           let comp = renderProps.components[renderProps.components.length - 1].WrappedComponent;
           let url = getSiteUrl()
-          resolve({});
+          resolve(comp.fetchData({ params, store, url }));
         });
       }
     }

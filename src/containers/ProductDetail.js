@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux'
 const TcProduct1 = '/public/assets/images/tc-product-1.png';
 const TcProduct2 = '/public/assets/images/tc-product-2.png';
 const TcProduct3 = '/public/assets/images/tc-product-3.png';
@@ -32,7 +33,9 @@ const Two = '/public/assets/images/2.png';
 const Three = '/public/assets/images/3.png';
 const Four = '/public/assets/images/4.png';
 
-export class ProductPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+@connect(null, null)
+export default class ProductPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   static fetchData() {
     return Promise.resolve({});
@@ -1018,5 +1021,3 @@ export class ProductPage extends React.PureComponent { // eslint-disable-line re
     );
   }
 }
-
-export default ProductPage;
