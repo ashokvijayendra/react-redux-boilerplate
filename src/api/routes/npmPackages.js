@@ -12,8 +12,7 @@ function getPackages(keyword, cb) {
       query        += '&endkey=["' + keyword + '",{}]'
       query        += '&group_level=3'
 
-  var url = [registryUrl, viewsPath, keywordView].join('/') + '?' + query
-
+  var url = [registryUrl, viewsPath, keywordView].join('/') + '?' + query;
   request(url, function (error, response, body) {
     cb(error, response, body)
   });

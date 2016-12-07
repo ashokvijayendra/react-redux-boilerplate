@@ -31,6 +31,9 @@ app.use('/api/npmPackages', npmPackages)
 const npmPackage = require('./src/api/routes/npmPackage')
 app.use('/api/npmPackage', npmPackage)
 
+const productData = require('./src/api/routes/product')
+app.use('/api/product', productData)
+
 /* configure store */
 function configureStore(memoryHistory, initialState) {
   const reducer = combineReducers({
