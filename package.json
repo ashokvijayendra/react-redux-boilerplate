@@ -8,7 +8,7 @@
     "clean": "rm public/bundle.js && rm public/style.css && rm public/vendor.js || true",
     "dev": "cross-env NODE_ENV=dev node server.js | cross-env NODE_ENV=dev webpack-dev-server --port 5000 --inline --hot",
     "test": "cross-env NODE_ENV=dev tape src/tests/index.js",
-    "prod": "cross-env NODE_ENV=prod nodemon server.js"
+    "prod": "cross-env NODE_ENV=prod node server.js"
   },
   "repository": {
     "type": "git",

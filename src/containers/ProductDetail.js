@@ -32,15 +32,34 @@ const One = '/public/assets/images/1.png';
 const Two = '/public/assets/images/2.png';
 const Three = '/public/assets/images/3.png';
 const Four = '/public/assets/images/4.png';
+import { fetchProductData } from '../actions'
+import { getSiteUrl } from '../lib/site'
+import { productSelector } from '../selectors'
 
-
-@connect(null, null)
-export default class ProductPage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-
-  static fetchData() {
-    return Promise.resolve({});
+const mapDispatchToProps = dispatch => {
+  return {
+    actions: {
+      fetchProductData: (name) => dispatch(fetchProductData(getSiteUrl(), name)),
+    }
   }
+}
+
+@connect(productSelector, mapDispatchToProps)
+export default class ProductPage extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
+  static fetchData({ params, store, url }) {
+    return store.dispatch( fetchProductData(url, params.name) )
+  }
+
+  componentDidMount() {
+    const { actions, params } = this.props
+    actions.fetchProductData(params.productId)
+  }
+
   render() {
+    console.log("PROPS",this.props)
+    const { product } = this.props;
+
     return (
       <div id="pdp-details-wrapper" className="padt20">
         <div id="pdp-detail-container" className="pdp-detail-cont">
@@ -236,7 +255,7 @@ export default class ProductPage extends React.PureComponent { // eslint-disable
               <a href="javascript:void(0);" >
                 <img src={PdpProduct1} alt="product" />
               </a>
-              <span className="cp-product-description">Bensonhurst Bedspread</span>
+              <span className="cp-product-description"> {product.name}</span>
               <span className="cp-product-price">$21.99-$119.99<sub>sale</sub></span>
               <span className="cp-previous-product-price">was $50-$300 | original</span>
               <div className="cp-rating-star">
